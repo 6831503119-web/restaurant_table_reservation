@@ -18,7 +18,7 @@ public class Main {
             System.out.println("6. Show Available Tables");
             System.out.print("Enter choice: ");
 
-            // ✅ Safe choice input
+            // Safe choice input
             if (sc.hasNextInt()) {
                 choice = sc.nextInt();
                 sc.nextLine(); // clear buffer
@@ -35,7 +35,7 @@ public class Main {
 
                     int people;
 
-                    // ✅ Safe people input
+                    // Safe people input
                     System.out.print("Number of people: ");
                     if (sc.hasNextInt()) {
                         people = sc.nextInt();
