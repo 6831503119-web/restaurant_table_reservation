@@ -4,17 +4,25 @@ class ReservationSystem {
 
     LinkedList<Reservation> reservations = new LinkedList<>();
     Queue<Reservation> waitingQueue = new LinkedList<>();
+    Stack<Integer> availableTables = new Stack<>();
 
     int totalTables = 3;
 
-    // Check table availability
-    boolean isTableAvailable() {
-        return reservations.size() < totalTables;
+    // Constructor to initialize tables
+    ReservationSystem() {
+        for (int i = totalTables; i >= 1; i--) {
+            availableTables.push(i);
+        }
     }
 
-    // Assign table number
+    // Check table availability
+    boolean isTableAvailable() {
+        return !availableTables.isEmpty();
+    }
+
+    // Assign table using Stack
     int assignTable() {
-        return reservations.size() + 1;
+        return availableTables.pop();
     }
 
     // Add Reservation
@@ -23,7 +31,7 @@ class ReservationSystem {
             int table = assignTable();
             Reservation r = new Reservation(name, people, table);
             reservations.add(r);
-            System.out.println("Reservation confirmed!");
+            System.out.println("Reservation confirmed! Table " + table + " assigned.");
         } else {
             Reservation r = new Reservation(name, people, -1);
             waitingQueue.add(r);
@@ -41,21 +49,27 @@ class ReservationSystem {
         }
 
         reservations.remove(r);
-        System.out.println("Reservation cancelled.");
 
-        // Move from queue if available
+        // Return table back to stack
+        availableTables.push(r.getTableNumber());
+
+        System.out.println("Reservation cancelled. Table " + r.getTableNumber() + " is now free.");
+
+        // Move from waiting queue if available
         if (!waitingQueue.isEmpty()) {
             Reservation next = waitingQueue.poll();
-            next.setTableNumber(assignTable());
+            int table = assignTable();
+            next.setTableNumber(table);
             reservations.add(next);
+
             System.out.println("Moved from waiting list:");
             next.display();
         }
     }
 
-    // Recursive Search 
+    // Recursive Search
     Reservation findReservation(String name, int index) {
-        if (index >= reservations.size()) 
+        if (index >= reservations.size())
             return null;
 
         if (reservations.get(index).getName().equalsIgnoreCase(name)) {
@@ -65,7 +79,7 @@ class ReservationSystem {
         return findReservation(name, index + 1);
     }
 
-    // View Reservations (uses recursion)
+    // View Reservations (Recursive)
     void viewReservations() {
         if (reservations.isEmpty()) {
             System.out.println("No reservations.");
@@ -76,7 +90,7 @@ class ReservationSystem {
         displayRecursive(0);
     }
 
-    // Recursive Traversal ⭐
+    // Recursive Traversal
     void displayRecursive(int index) {
         if (index >= reservations.size()) return;
 
@@ -84,7 +98,7 @@ class ReservationSystem {
         displayRecursive(index + 1);
     }
 
-    // View Waiting List (queue)
+    // View Waiting List
     void viewWaitingList() {
         if (waitingQueue.isEmpty()) {
             System.out.println("Waiting list is empty.");
@@ -96,5 +110,10 @@ class ReservationSystem {
             System.out.println("Name: " + r.getName() +
                     " | People: " + r.getPeople());
         }
+    }
+
+    // Show available tables
+    void showAvailableTables() {
+        System.out.println("Available Tables (Stack): " + availableTables);
     }
 }

@@ -15,8 +15,10 @@ public class Main {
             System.out.println("3. View Reservations");
             System.out.println("4. View Waiting List");
             System.out.println("5. Exit");
+            System.out.println("6. Show Available Tables");
             System.out.print("Enter choice: ");
 
+            // ✅ Safe choice input
             if (sc.hasNextInt()) {
                 choice = sc.nextInt();
                 sc.nextLine(); // clear buffer
@@ -33,13 +35,14 @@ public class Main {
 
                     int people;
 
+                    // ✅ Safe people input
                     System.out.print("Number of people: ");
                     if (sc.hasNextInt()) {
                         people = sc.nextInt();
-                        sc.nextLine();
+                        sc.nextLine(); // clear buffer
                     } else {
                         System.out.println("Invalid number!");
-                        sc.next();
+                        sc.next(); // remove invalid input
                         continue;
                     }
 
@@ -64,6 +67,10 @@ public class Main {
                 case 5:
                     System.out.println("Exiting...");
                     break;
+
+                case 6:
+                system.showAvailableTables();
+                break;
 
                 default:
                     System.out.println("Invalid choice!");
