@@ -1,4 +1,6 @@
-class Reservation {
+package main.core;
+
+public class Reservation {
     private String name;
     private int people;
     private int tableNumber;
@@ -16,18 +18,18 @@ class Reservation {
     }
 
     public String getName() {
-    return name;
-}
+        return name;
+    }
 
-public int getPeople() {
-    return people;
-}
+    public int getPeople() {
+        return people;
+    }
 
-public int getTableNumber() {
-    return tableNumber;
-}
+    public int getTableNumber() {
+        return tableNumber;
+    }
 
-public void setTableNumber(int tableNumber) {
-    this.tableNumber = tableNumber;
-}
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
 }
