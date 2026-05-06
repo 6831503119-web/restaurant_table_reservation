@@ -5,6 +5,7 @@ A comprehensive group project for Data Structures and Algorithms implementing a 
 ## 📋 Project Overview
 
 This is a Java-based command-line application that manages restaurant table reservations using various data structures:
+
 - **Stack** - For available tables management
 - **LinkedList** - For active reservations
 - **Queue** - For waiting list management
@@ -20,7 +21,7 @@ This is a Java-based command-line application that manages restaurant table rese
 ✅ Automatic promotion from waiting list when tables become available  
 ✅ Input validation with custom exceptions  
 ✅ Colored console interface  
-✅ Developer options for system monitoring  
+✅ Developer options for system monitoring
 
 ---
 
@@ -34,6 +35,7 @@ This is a Java-based command-line application that manages restaurant table rese
 **Project Type:** First Year Java DSA Group Project
 
 **Members:**
+
 - 6831503002 - Mr. Aung Kyaw Min Htet
 - 6831503011 - Mr. Kyaw Zin Htike
 - 6831503022 - Mr. Kaung Sett Paing
@@ -85,6 +87,7 @@ java -version
 ```
 
 Expected output:
+
 ```
 java version "21.0.5"
 ```
@@ -96,6 +99,7 @@ java version "21.0.5"
 ### Step 1: Clone or Download the Project
 
 **Using Git:**
+
 ```bash
 git clone <repository-url>
 cd restaurant_table_reservation
@@ -128,11 +132,13 @@ mkdir -p bin && javac -d bin main/**/*.java && java -cp bin main.Main
 ### Step-by-Step Execution
 
 **Step 1: Compile all Java files**
+
 ```bash
 javac -d bin main/**/*.java
 ```
 
 **Step 2: Run the application**
+
 ```bash
 java -cp bin main.Main
 ```
@@ -160,33 +166,40 @@ Enter your choice: _
 ## 📖 Usage Guide
 
 ### 1. Add Reservation
+
 - **Select:** Option 1
 - **Enter:** Customer name (letters and spaces only)
 - **Enter:** Number of people (positive integer)
 - **Result:** Reservation confirmed or added to waiting list
 
 ### 2. Cancel Reservation
+
 - **Select:** Option 2
 - **Enter:** Customer name to cancel
 - **Result:** Reservation cancelled, table freed, waiting customer promoted if applicable
 
 ### 3. View Reservations
+
 - **Select:** Option 3
 - **Shows:** All current confirmed reservations with details
 
 ### 4. View Waiting List
+
 - **Select:** Option 4
 - **Shows:** Customers waiting for available tables
 
 ### 5. Show Available Tables
+
 - **Select:** Option 5
 - **Shows:** List of currently available tables
 
 ### 6. Developer Info
+
 - **Select:** Option 6
 - **Shows:** Project information and team details
 
 ### 7. Exit
+
 - **Select:** Option 7
 - **Action:** Safely exits the application
 
@@ -196,11 +209,11 @@ Enter your choice: _
 
 ### Data Structures Used
 
-| Data Structure | Purpose | Usage |
-|---|---|---|
-| **Stack** | Available Tables | LIFO - Last table assigned is first to be reused |
-| **LinkedList** | Active Reservations | Easy insertion and deletion of reservations |
-| **Queue** | Waiting List | FIFO - First customer to wait is first to get table |
+| Data Structure | Purpose             | Usage                                               |
+| -------------- | ------------------- | --------------------------------------------------- |
+| **Stack**      | Available Tables    | LIFO - Last table assigned is first to be reused    |
+| **LinkedList** | Active Reservations | Easy insertion and deletion of reservations         |
+| **Queue**      | Waiting List        | FIFO - First customer to wait is first to get table |
 
 ### Algorithms Implemented
 
@@ -211,6 +224,7 @@ Enter your choice: _
 ### Exception Handling
 
 Custom exceptions ensure robust error handling:
+
 - `InvalidNameException` - Invalid customer name
 - `InvalidPeopleException` - Invalid party size
 - `ReservationNotFoundException` - Reservation not found
@@ -222,6 +236,7 @@ Custom exceptions ensure robust error handling:
 ## 🎨 Features Explained
 
 ### Input Validation
+
 - All user inputs are validated in `Validation.java`
 - Name must contain only letters and spaces
 - Party size must be positive integer
@@ -229,19 +244,24 @@ Custom exceptions ensure robust error handling:
 - Invalid inputs loop until valid
 
 ### Exception Handling
+
 - Try-catch blocks in `Main.java` handle all exceptions
 - User-friendly error messages displayed
 - Program continues running after errors
 
 ### Automatic Promotion
+
 When a reservation is cancelled:
+
 1. Table is returned to available tables
 2. First customer from waiting list is automatically promoted
 3. New reservation created with assigned table
 4. Confirmation message displayed
 
 ### Developer Options
+
 Access developer features for testing and monitoring (Option 6):
+
 - View system information
 - Check system stats
 - View team information
@@ -251,18 +271,23 @@ Access developer features for testing and monitoring (Option 6):
 ## 🐛 Troubleshooting
 
 ### Error: "javac: command not found"
+
 **Solution:** Java compiler is not in PATH. Install Java or add to PATH.
 
 ### Error: "Cannot find symbol"
+
 **Solution:** Make sure all files are in correct directories. Run:
+
 ```bash
 javac -d bin main/**/*.java
 ```
 
 ### Error: "main.Main not found"
+
 **Solution:** Ensure you're in the correct directory and used `-d bin` flag.
 
 ### Program exits unexpectedly
+
 **Solution:** Check error messages. Invalid input might cause exception. Use try-catch blocks.
 
 ---
@@ -301,6 +326,7 @@ Exiting...
 ## 📚 Learning Outcomes
 
 This project demonstrates understanding of:
+
 - ✅ Data structures (Stack, Queue, LinkedList)
 - ✅ Exception handling (Custom exceptions)
 - ✅ Recursion (Search and display functions)
