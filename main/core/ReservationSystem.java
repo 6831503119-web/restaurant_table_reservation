@@ -128,9 +128,9 @@ public class ReservationSystem {
             return;
         }
 
-        System.out.println(YELLOW + "\n┌─────────────────────────────────────────┐" + RESET);
-        System.out.println(YELLOW + "│          WAITING LIST                   │" + RESET);
-        System.out.println(YELLOW + "└─────────────────────────────────────────┘" + RESET);
+        System.out.println(YELLOW + "\n┌──────────────────────────────────────┐" + RESET);
+        System.out.println(YELLOW + "│          WAITING LIST                │" + RESET);
+        System.out.println(YELLOW + "└──────────────────────────────────────┘" + RESET);
         for (Reservation r : waitingQueue) {
             System.out.println(
                     YELLOW + "  • " + WHITE + r.getName() + YELLOW + " (" + r.getPeople() + " people)" + RESET);

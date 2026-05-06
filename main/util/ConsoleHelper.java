@@ -2,6 +2,8 @@ package main.util;
 
 import static main.util.Color.*;
 
+import java.util.Scanner;
+
 public class ConsoleHelper {
     public void printMenu() {
         System.out.println("\n" + BLUE + "╔══════════════════════════════════════╗" + RESET);
@@ -19,7 +21,9 @@ public class ConsoleHelper {
         System.out.println(
                 BLUE + "║  " + GREEN + "5." + WHITE + " Show Available Tables            " + BLUE + "║" + RESET);
         System.out.println(
-                BLUE + "║  " + RED + "6." + WHITE + " Exit                             " + BLUE + "║" + RESET);
+                BLUE + "║  " + GREEN + "6." + WHITE + " Developer Info                   " + BLUE + "║" + RESET);
+        System.out.println(
+                BLUE + "║  " + RED + "7." + WHITE + " Exit                             " + BLUE + "║" + RESET);
         // System.out.println(BLUE + "║" + RESET);
         System.out.println(BLUE + "╚══════════════════════════════════════╝" + RESET);
         System.out.print("\n" + YELLOW + "Enter your choice: " + RESET);
@@ -34,7 +38,7 @@ public class ConsoleHelper {
     }
 
     public void printInfo(String message) {
-        System.out.println(CYAN + "ℹ " + message + RESET);
+        System.out.println(YELLOW + "ℹ " + message + RESET);
     }
 
     public void printHeader(String title) {
@@ -58,4 +62,59 @@ public class ConsoleHelper {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
+    public static void showDeveloperInfo() {
+
+        // Top Border
+        System.out.println(CYAN + "===========================================================" + RESET);
+
+        // Title
+        System.out.println(
+                CYAN + "|          Restaurant Table Reservation System            |" + RESET);
+
+        System.out.println(CYAN + "===========================================================" + RESET);
+
+        // Group Info
+        System.out.println(YELLOW + "| Group Name  : Anubis                                    |" + RESET);
+        System.out.println(YELLOW + "| University  : Mae Fah Luang University                  |" + RESET);
+        System.out.println(YELLOW + "| School      : Applied Digital Technology                |" + RESET);
+        System.out.println(YELLOW + "| Major       : Software Engineering                      |" + RESET);
+
+        // Description
+        System.out.println(GREEN + "| Description : First Year (Java(DSA) Group Project)      |" + RESET);
+
+        // Members Header
+        System.out.println(CYAN + "===========================================================" + RESET);
+        System.out.println(WHITE + "| Members:                                                |" + RESET);
+
+        // Members List
+        System.out.println(WHITE + "| 6831503002 - Mr. Aung Kyaw Min Htet                     |" + RESET);
+        System.out.println(WHITE + "| 6831503011 - Mr. Kyaw Zin Htike                         |" + RESET);
+        System.out.println(WHITE + "| 6831503022 - Mr. Kaung Sett Paing                       |" + RESET);
+        System.out.println(WHITE + "| 6831503119 - Mr. Bhone Pyae Ko                          |" + RESET);
+
+        // Footer
+        System.out.println(CYAN + "===========================================================" + RESET);
+        System.out.println(YELLOW + "| Created Date : 05.05.2026                               |" + RESET);
+        System.out.println(YELLOW + "| Version      : 1.0.0.0                                  |" + RESET);
+
+        // Bottom Border
+        System.out.println(CYAN + "===========================================================" + RESET);
+        
+        continueOption(new Scanner(System.in));
+    }
+
+    public static void continueOption(Scanner sc) {
+
+        System.out.print("\nPress only ");
+
+        System.out.print(GREEN + "\"Enter\"" + RESET);
+
+        System.out.print(" to ");
+
+        System.out.println(YELLOW + "continue..." + RESET);
+
+        sc.nextLine(); // wait for Enter
+    }
+
 }
