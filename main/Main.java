@@ -41,6 +41,7 @@ public class Main {
                     } catch (NoTablesAvailableException e) {
                         consoleHelper.printError(e.getMessage());
                     }
+                    ConsoleHelper.continueOption(sc);
                     break;
 
                 case 2:

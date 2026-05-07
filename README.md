@@ -57,6 +57,10 @@ restaurant_table_reservation/
     ├── core/
     │   ├── ReservationSystem.java (Business logic)
     │   └── Reservation.java       (Data model)
+    ├── datastructures/           (Custom implementations)
+    │   ├── CustomLinkedList.java  (Generic LinkedList with Iterator)
+    │   ├── CustomQueue.java       (Generic Queue with Iterator)
+    │   └── CustomStack.java       (Generic Stack with Iterator)
     ├── util/
     │   ├── ConsoleHelper.java     (UI formatting)
     │   ├── Color.java             (ANSI color codes)
@@ -207,19 +211,54 @@ Enter your choice: _
 
 ## 🔧 Technical Details
 
-### Data Structures Used
+### Custom Data Structures
 
-| Data Structure | Purpose             | Usage                                               |
-| -------------- | ------------------- | --------------------------------------------------- |
-| **Stack**      | Available Tables    | LIFO - Last table assigned is first to be reused    |
-| **LinkedList** | Active Reservations | Easy insertion and deletion of reservations         |
-| **Queue**      | Waiting List        | FIFO - First customer to wait is first to get table |
+This project implements **custom generic data structures** from scratch to demonstrate deep understanding of data structure concepts:
+
+#### 1. CustomLinkedList\<T>
+
+- **Location:** `main/datastructures/CustomLinkedList.java`
+- **Features:**
+  - Generic implementation using inner Node class
+  - Implements `Iterable<T>` for enhanced for-loops
+  - Methods: `add()`, `remove()`, `get()`, `isEmpty()`, `size()`, `display()`
+  - Iterator pattern for traversing elements
+  - Recursive display functionality
+
+#### 2. CustomQueue\<T>
+
+- **Location:** `main/datastructures/CustomQueue.java`
+- **Features:**
+  - FIFO (First In First Out) implementation
+  - Implements `Iterable<T>` for enhanced for-loops
+  - Methods: `add()`, `poll()`, `peek()`, `isEmpty()`, `size()`, `display()`
+  - Front and rear pointers for efficient operations
+  - Used for waiting list management
+
+#### 3. CustomStack\<T>
+
+- **Location:** `main/datastructures/CustomStack.java`
+- **Features:**
+  - LIFO (Last In Last Out) implementation
+  - Implements `Iterable<T>` for enhanced for-loops
+  - Methods: `push()`, `pop()`, `peek()`, `isEmpty()`, `size()`, `display()`
+  - Top pointer for stack operations
+  - Used for available tables management
+
+### Data Structures Usage
+
+| Data Structure       | Purpose             | Usage                                               |
+| -------------------- | ------------------- | --------------------------------------------------- |
+| **CustomStack**      | Available Tables    | LIFO - Last table assigned is first to be reused    |
+| **CustomLinkedList** | Active Reservations | Easy insertion and deletion of reservations         |
+| **CustomQueue**      | Waiting List        | FIFO - First customer to wait is first to get table |
 
 ### Algorithms Implemented
 
 - **Recursive Search** - Find reservations by customer name
 - **Recursive Display** - Show all reservations recursively
 - **Validation Loops** - Input validation until valid data
+- **Iterator Pattern** - Traverse custom data structures with for-each loops
 
 ### Exception Handling
 
@@ -230,6 +269,50 @@ Custom exceptions ensure robust error handling:
 - `ReservationNotFoundException` - Reservation not found
 - `NoTablesAvailableException` - No tables available
 - `InvalidReservationException` - General reservation errors
+
+---
+
+## 🎓 Understanding Custom Data Structures
+
+### Why Custom Implementations?
+
+Instead of using Java's built-in `LinkedList`, `Queue`, and `Stack`, we implemented these from scratch to:
+
+- Understand internal data structure mechanics
+- Learn generic programming in Java
+- Master linked node concepts
+- Implement the Iterator pattern
+- Provide type-safe, efficient operations
+
+### How Iterator Pattern Works
+
+All custom data structures implement `Iterable<T>`, enabling for-each loops:
+
+```java
+// Before: Manual index-based access (limited to LinkedList)
+for (int i = 0; i < reservations.size(); i++) {
+    reservations.get(i).display();
+}
+
+// After: Universal for-each loops (works with all structures)
+for (Reservation r : reservations) {
+    r.display();
+}
+```
+
+### Generic Type Support
+
+All data structures are fully generic:
+
+```java
+CustomLinkedList<Reservation> reservations = new CustomLinkedList<>();
+CustomQueue<Reservation> waitingQueue = new CustomQueue<>();
+CustomStack<Integer> availableTables = new CustomStack<>();
+
+// Can work with any type!
+CustomStack<String> names = new CustomStack<>();
+CustomLinkedList<Integer> numbers = new CustomLinkedList<>();
+```
 
 ---
 

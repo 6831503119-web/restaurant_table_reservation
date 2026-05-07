@@ -1,15 +1,17 @@
 package main.core;
 
-import java.util.*;
 import main.util.ConsoleHelper;
 import main.exception.*;
+import main.datastructures.CustomLinkedList;
+import main.datastructures.CustomQueue;
+import main.datastructures.CustomStack;
 import static main.util.Color.*;
 
 public class ReservationSystem {
 
-    LinkedList<Reservation> reservations = new LinkedList<>();
-    Queue<Reservation> waitingQueue = new LinkedList<>();
-    Stack<Integer> availableTables = new Stack<>();
+    CustomLinkedList<Reservation> reservations = new CustomLinkedList<>();
+    CustomQueue<Reservation> waitingQueue = new CustomQueue<>();
+    CustomStack<Integer> availableTables = new CustomStack<>();
     ConsoleHelper helper = new ConsoleHelper();
 
     int totalTables = 3;
@@ -143,6 +145,10 @@ public class ReservationSystem {
             helper.printError("No tables available.");
             return;
         }
-        System.out.println(GREEN + "Available Tables: " + availableTables + RESET);
+        System.out.print(GREEN + "Available Tables: ");
+        for (Integer table : availableTables) {
+            System.out.print(table + " ");
+        }
+        System.out.println(RESET);
     }
 }
