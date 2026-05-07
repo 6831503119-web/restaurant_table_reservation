@@ -1,8 +1,6 @@
 package main.datastructures;
 
-import java.util.Iterator;
-
-public class CustomQueue<T> implements Iterable<T> {
+public class CustomQueue<T> {
 
     class Node {
         T data;
@@ -67,6 +65,19 @@ public class CustomQueue<T> implements Iterable<T> {
         return size;
     }
 
+    // Get element at index without removing (for display purposes)
+    public T getAt(int index) {
+        if (index < 0 || index >= size) {
+            return null;
+        }
+
+        Node temp = front;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp != null ? temp.data : null;
+    }
+
     // Display queue
     public void display() {
         Node temp = front;
@@ -76,26 +87,5 @@ public class CustomQueue<T> implements Iterable<T> {
             temp = temp.next;
         }
         System.out.println("null");
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return new QueueIterator();
-    }
-
-    private class QueueIterator implements Iterator<T> {
-        private Node current = front;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T data = current.data;
-            current = current.next;
-            return data;
-        }
     }
 }

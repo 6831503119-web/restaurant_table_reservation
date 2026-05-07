@@ -1,8 +1,6 @@
 package main.datastructures;
 
-import java.util.Iterator;
-
-public class CustomLinkedList<T> implements Iterable<T> {
+public class CustomLinkedList<T> {
 
     class Node {
         T data;
@@ -92,26 +90,5 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
         System.out.print(node.data + " -> ");
         displayRecursive(node.next);
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return new LinkedListIterator();
-    }
-
-    private class LinkedListIterator implements Iterator<T> {
-        private Node current = head;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T data = current.data;
-            current = current.next;
-            return data;
-        }
     }
 }

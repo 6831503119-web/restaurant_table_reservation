@@ -133,9 +133,13 @@ public class ReservationSystem {
         System.out.println(YELLOW + "\n┌──────────────────────────────────────┐" + RESET);
         System.out.println(YELLOW + "│          WAITING LIST                │" + RESET);
         System.out.println(YELLOW + "└──────────────────────────────────────┘" + RESET);
-        for (Reservation r : waitingQueue) {
-            System.out.println(
-                    YELLOW + "  • " + WHITE + r.getName() + YELLOW + " (" + r.getPeople() + " people)" + RESET);
+
+        for (int i = 0; i < waitingQueue.size(); i++) {
+            Reservation r = waitingQueue.getAt(i);
+            if (r != null) {
+                System.out.println(
+                        YELLOW + "  • " + WHITE + r.getName() + YELLOW + " (" + r.getPeople() + " people)" + RESET);
+            }
         }
     }
 
@@ -146,9 +150,7 @@ public class ReservationSystem {
             return;
         }
         System.out.print(GREEN + "Available Tables: ");
-        for (Integer table : availableTables) {
-            System.out.print(table + " ");
-        }
-        System.out.println(RESET);
+        availableTables.display();
+        System.out.print(RESET);
     }
 }

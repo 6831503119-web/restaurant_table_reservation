@@ -1,8 +1,6 @@
 package main.datastructures;
 
-import java.util.Iterator;
-
-public class CustomStack<T> implements Iterable<T> {
+public class CustomStack<T> {
 
     class Node {
         T data;
@@ -58,32 +56,10 @@ public class CustomStack<T> implements Iterable<T> {
     // Display stack
     public void display() {
         Node temp = top;
-        System.out.print("Stack: ");
         while (temp != null) {
-            System.out.print(temp.data + " -> ");
+            System.out.print(temp.data + " ");
             temp = temp.next;
         }
-        System.out.println("null");
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return new StackIterator();
-    }
-
-    private class StackIterator implements Iterator<T> {
-        private Node current = top;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T data = current.data;
-            current = current.next;
-            return data;
-        }
+        System.out.println();
     }
 }
